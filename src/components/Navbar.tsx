@@ -1,14 +1,11 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isExpertiseDropdownOpen, setIsExpertiseDropdownOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const expertiseDropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   
   // Close mobile menu when route changes
@@ -31,31 +28,20 @@ const Navbar = () => {
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
         setIsMobileMenuOpen(false);
       }
-      
-      if (isExpertiseDropdownOpen && 
-          expertiseDropdownRef.current && 
-          !expertiseDropdownRef.current.contains(event.target as Node)) {
-        setIsExpertiseDropdownOpen(false);
-      }
     };
 
-    if (isMobileMenuOpen || isExpertiseDropdownOpen) {
+    if (isMobileMenuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     }
     
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isMobileMenuOpen, isExpertiseDropdownOpen]);
+  }, [isMobileMenuOpen]);
 
   // Toggle mobile menu
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  // Toggle expertise dropdown
-  const toggleExpertiseDropdown = () => {
-    setIsExpertiseDropdownOpen(!isExpertiseDropdownOpen);
   };
 
   return (
@@ -82,105 +68,34 @@ const Navbar = () => {
 
             {/* Desktop navigation with improved spacing */}
             <div className="hidden md:flex items-center space-x-10">
-              {/* About & FAQs */}
-              <Link 
-                to="/about" 
-                className={`text-slate-700 hover:text-slate-900 text-sm transition-colors relative ${
-                  location.pathname === '/about' ? 'text-slate-900 font-medium' : 'font-normal'
-                }`}
-              >
-                About & FAQs
-                {location.pathname === '/about' && (
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-slate-800"></span>
-                )}
-              </Link>
-
-              {/* Expertise Dropdown */}
-              <div className="relative" ref={expertiseDropdownRef}>
-                <button
-                  onClick={toggleExpertiseDropdown}
-                  className={`flex items-center text-slate-700 hover:text-slate-900 text-sm transition-colors ${
-                    location.pathname === '/expertise' ? 'text-slate-900 font-medium' : 'font-normal'
+              {[
+                { path: '/specialties', label: 'Specialties' },
+                { path: '/about', label: 'About & FAQs' },
+                { path: '/expertise', label: 'Expertise' },
+                { path: '/resources', label: 'Resources' }
+              ].map((item) => (
+                <Link 
+                  key={item.path}
+                  to={item.path} 
+                  className={`text-slate-700 hover:text-slate-900 text-sm transition-colors relative ${
+                    location.pathname === item.path ? 'text-slate-900 font-medium' : 'font-normal'
                   }`}
                 >
-                  Expertise
-                  {isExpertiseDropdownOpen ? (
-                    <ChevronUp className="h-4 w-4 ml-1" />
-                  ) : (
-                    <ChevronDown className="h-4 w-4 ml-1" />
+                  {item.label}
+                  {location.pathname === item.path && (
+                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-slate-800"></span>
                   )}
-                </button>
-                
-                {/* Expertise dropdown menu */}
-                {isExpertiseDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-md shadow-lg z-50 py-2">
-                    <Link 
-                      to="/expertise" 
-                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
-                    >
-                      All Expertise
-                    </Link>
-                    {[
-                      'Low Self Esteem',
-                      'Lack of Confidence',
-                      'Social Anxiety',
-                      'Generalised Anxiety Disorder',
-                      'Health Anxiety',
-                      'Depression',
-                      'OCD'
-                    ].map((item) => (
-                      <Link 
-                        key={item}
-                        to={`/expertise#${item.toLowerCase().replace(/\s+/g, '-')}`} 
-                        className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
-                      >
-                        {item}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-                
-                {location.pathname === '/expertise' && (
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-slate-800"></span>
-                )}
-              </div>
-
-              {/* Fees */}
-              <Link 
-                to="/fees" 
-                className={`text-slate-700 hover:text-slate-900 text-sm transition-colors relative ${
-                  location.pathname === '/fees' ? 'text-slate-900 font-medium' : 'font-normal'
-                }`}
-              >
-                Fees
-                {location.pathname === '/fees' && (
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-slate-800"></span>
-                )}
-              </Link>
-
-              {/* Blog */}
-              <Link 
-                to="/blog" 
-                className={`text-slate-700 hover:text-slate-900 text-sm transition-colors relative ${
-                  location.pathname === '/blog' ? 'text-slate-900 font-medium' : 'font-normal'
-                }`}
-              >
-                Blog
-                {location.pathname === '/blog' && (
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-slate-800"></span>
-                )}
-              </Link>
+                </Link>
+              ))}
             </div>
 
             {/* CTA button with improved styling */}
             <div className="hidden md:block">
               <Link 
                 to="/contact" 
-                className={`bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors ${
-                  location.pathname === '/contact' ? 'bg-slate-700' : ''
-                }`}
+                className="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors"
               >
-                Contact
+                Schedule a Call
               </Link>
             </div>
 
@@ -211,102 +126,29 @@ const Navbar = () => {
       >
         <div className="w-full px-6 py-4">
           <div className="flex flex-col space-y-1">
-            {/* About & FAQs */}
-            <Link 
-              to="/about" 
-              className={`py-3 border-b border-slate-100 flex justify-between items-center ${
-                location.pathname === '/about' 
-                  ? 'text-slate-900 font-medium' 
-                  : 'text-slate-600'
-              }`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <span>About & FAQs</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-
-            {/* Expertise with accordion */}
-            <div className="border-b border-slate-100">
-              <button
-                onClick={() => toggleExpertiseDropdown()}
-                className={`w-full py-3 flex justify-between items-center ${
-                  location.pathname === '/expertise' 
+            {/* Mobile Navigation Links */}
+            {[
+              { path: '/specialties', label: 'Specialties' },
+              { path: '/about', label: 'About & FAQs' },
+              { path: '/expertise', label: 'Expertise' },
+              { path: '/resources', label: 'Resources' }
+            ].map((item) => (
+              <Link 
+                key={item.path}
+                to={item.path} 
+                className={`py-3 border-b border-slate-100 flex justify-between items-center ${
+                  location.pathname === item.path 
                     ? 'text-slate-900 font-medium' 
                     : 'text-slate-600'
                 }`}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span>Expertise</span>
-                {isExpertiseDropdownOpen ? (
-                  <ChevronUp className="h-4 w-4" />
-                ) : (
-                  <ChevronDown className="h-4 w-4" />
-                )}
-              </button>
-              
-              {isExpertiseDropdownOpen && (
-                <div className="pl-4 pb-2">
-                  <Link 
-                    to="/expertise" 
-                    className="block py-2 text-sm text-slate-600 hover:text-slate-900"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    All Expertise
-                  </Link>
-                  {[
-                    'Low Self Esteem',
-                    'Lack of Confidence',
-                    'Social Anxiety',
-                    'Generalised Anxiety Disorder',
-                    'Health Anxiety',
-                    'Depression',
-                    'OCD'
-                  ].map((item) => (
-                    <Link 
-                      key={item}
-                      to={`/expertise#${item.toLowerCase().replace(/\s+/g, '-')}`} 
-                      className="block py-2 text-sm text-slate-600 hover:text-slate-900"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Fees */}
-            <Link 
-              to="/fees" 
-              className={`py-3 border-b border-slate-100 flex justify-between items-center ${
-                location.pathname === '/fees' 
-                  ? 'text-slate-900 font-medium' 
-                  : 'text-slate-600'
-              }`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <span>Fees</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-
-            {/* Blog */}
-            <Link 
-              to="/blog" 
-              className={`py-3 border-b border-slate-100 flex justify-between items-center ${
-                location.pathname === '/blog' 
-                  ? 'text-slate-900 font-medium' 
-                  : 'text-slate-600'
-              }`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <span>Blog</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
+                <span>{item.label}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            ))}
 
             {/* Mobile CTA */}
             <div className="pt-4">
@@ -315,7 +157,7 @@ const Navbar = () => {
                 className="block w-full bg-slate-800 hover:bg-slate-700 text-white text-center px-6 py-3 rounded-md transition-colors font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Contact
+                Schedule a Call
               </Link>
             </div>
           </div>
