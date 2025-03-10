@@ -17,7 +17,7 @@ const Expertise = () => {
         <section className="section">
           <div className="container mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-block py-1 px-3 bg-therapy-blue/30 text-primary rounded-full font-medium mb-4 text-sm">
+              <span className="inline-block py-1 px-3 bg-therapy-blue/20 text-primary rounded-full font-medium mb-4 text-sm">
                 Expertise
               </span>
               

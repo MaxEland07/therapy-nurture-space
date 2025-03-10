@@ -1,3 +1,4 @@
+
 import { useRef, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
@@ -113,7 +114,7 @@ const Expertise = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section bg-therapy-light-blue/20 py-16">
+    <section ref={sectionRef} className="section bg-slate-50 py-16">
       <div className="container mx-auto">
         <div className="animate-on-scroll opacity-0 translate-y-10 transition-all duration-700">
           <Tabs defaultValue="low-self-esteem" className="w-full">
