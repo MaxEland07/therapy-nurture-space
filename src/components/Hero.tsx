@@ -42,50 +42,50 @@ const Hero = () => {
           aria-label="Person overlooking ocean, representing mental health journey"
         />
         
-        {/* Gradient overlay for better text contrast - visible on all devices */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-800/60 to-slate-700/30"></div>
+        {/* Stronger gradient overlay for better text contrast - especially for mobile */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/75 to-slate-700/60"></div>
       </div>
       
-      {/* Content container - simplified for better responsiveness */}
+      {/* Content container - simplified and improved for better responsiveness */}
       <div className="relative h-full z-10">
         <div className="container mx-auto px-6 h-full flex flex-col justify-center">
           <div 
             ref={heroRef} 
-            className="max-w-xl transition-all duration-1000 transform opacity-0 translate-y-4"
+            className="max-w-xl backdrop-blur-[2px] bg-black/10 p-6 sm:p-8 rounded-lg sm:backdrop-blur-none sm:bg-transparent transition-all duration-1000 transform opacity-0 translate-y-4"
           >
             {/* Credential badge */}
-            <div className="mb-6 md:mb-10">
-              <span className="uppercase text-white/90 tracking-wider text-sm md:text-base font-medium">
+            <div className="mb-4 md:mb-6">
+              <span className="uppercase text-white/90 tracking-wider text-xs md:text-sm font-medium">
                 Qualified and Accredited CBT Therapist
               </span>
             </div>
             
-            {/* Main headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-medium leading-tight">
-              <div className="mb-2">Take Back</div>
-              <div className="mb-2">Control of Your</div>
-              <div>Mental Health</div>
+            {/* Main headline - smaller on mobile */}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-medium leading-tight">
+              <span className="block mb-1">Take Back</span>
+              <span className="block mb-1">Control of Your</span>
+              <span className="block">Mental Health</span>
             </h1>
             
             {/* Subheading with better spacing */}
-            <div className="mt-6 md:mt-8">
-              <h2 className="text-lg md:text-xl lg:text-2xl text-white/90 font-normal">
+            <div className="mt-4 md:mt-6">
+              <h2 className="text-base md:text-lg lg:text-xl text-white/90 font-normal">
                 Effective Mental Health Solutions in Bristol and Online
               </h2>
             </div>
             
             {/* Free consultation text */}
-            <div className="mt-6 md:mt-8 mb-6 md:mb-8">
-              <p className="text-base lg:text-lg text-white/90">
+            <div className="mt-4 md:mt-6 mb-4 md:mb-6">
+              <p className="text-sm lg:text-base text-white/90">
                 Start Today with a <span className="font-semibold text-white">Free Consultation</span> – A Better Tomorrow Awaits
               </p>
             </div>
             
             {/* CTA button with better styling */}
-            <div className="mt-4">
+            <div className="mt-2">
               <Link 
                 to="/contact" 
-                className="inline-block bg-white border-2 border-white text-slate-800 hover:bg-transparent hover:text-white transition-colors duration-300 px-8 py-3 uppercase font-semibold tracking-wider text-base shadow-sm"
+                className="inline-block bg-white border-2 border-white text-slate-800 hover:bg-transparent hover:text-white transition-colors duration-300 px-6 py-2 sm:px-8 sm:py-3 uppercase font-semibold tracking-wider text-sm sm:text-base shadow-sm"
               >
                 Let's Do This!
               </Link>
