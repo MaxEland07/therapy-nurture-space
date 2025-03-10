@@ -47,25 +47,27 @@ const Navbar = () => {
   return (
     <>
       <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 w-full ${
           isScrolled 
-            ? "bg-white shadow-md py-3" 
-            : "bg-white/90 backdrop-blur-sm py-4"
+            ? "bg-white shadow-sm py-2" 
+            : "bg-white py-3"
         }`}
       >
-        <div className="container mx-auto px-6">
+        <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto">
           <div className="flex items-center justify-between">
-            {/* Logo area with image */}
-            <Link to="/" className="flex items-center">
-              <img 
-                src="https://holland-pearse.com/wp-content/uploads/2022/09/Holland-Pearse-Logo.png" 
-                alt="Holland-Pearse Psychotherapy" 
-                className="h-10 md:h-12"
-              />
+            {/* Logo area with psychotherapy text below */}
+            <Link to="/" className="flex items-center py-1">
+              <div className="flex flex-col">
+                <div className="flex items-baseline">
+                  <span className="text-xl font-medium text-slate-800">Holland</span>
+                  <span className="text-xl font-light text-slate-800">-Pearse</span>
+                </div>
+                <span className="text-xs text-slate-600 -mt-0.5 tracking-wide">Psychotherapy</span>
+              </div>
             </Link>
 
-            {/* Desktop navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            {/* Desktop navigation with improved spacing */}
+            <div className="hidden md:flex items-center space-x-10">
               {[
                 { path: '/specialties', label: 'Specialties' },
                 { path: '/about', label: 'About & FAQs' },
@@ -75,54 +77,54 @@ const Navbar = () => {
                 <Link 
                   key={item.path}
                   to={item.path} 
-                  className={`text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors relative ${
-                    location.pathname === item.path ? 'text-gray-900' : ''
+                  className={`text-slate-700 hover:text-slate-900 text-sm transition-colors relative ${
+                    location.pathname === item.path ? 'text-slate-900 font-medium' : 'font-normal'
                   }`}
                 >
                   {item.label}
                   {location.pathname === item.path && (
-                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gray-800"></span>
+                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-slate-800"></span>
                   )}
                 </Link>
               ))}
             </div>
 
-            {/* CTA button */}
+            {/* CTA button with improved styling */}
             <div className="hidden md:block">
               <Link 
                 to="/contact" 
-                className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2 rounded-full text-sm transition-colors"
+                className="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 Schedule a Call
               </Link>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile menu button with improved styling */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden bg-gray-100 p-2 rounded-full focus:outline-none"
+              className="md:hidden p-1.5 rounded-md focus:outline-none text-slate-700"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
-                <X className="h-5 w-5 text-gray-800" />
+                <X className="h-5 w-5" />
               ) : (
-                <Menu className="h-5 w-5 text-gray-800" />
+                <Menu className="h-5 w-5" />
               )}
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile menu overlay with improved styling */}
       <div 
         ref={mobileMenuRef}
-        className={`fixed top-0 left-0 right-0 z-40 bg-white shadow-xl transition-transform duration-300 ease-in-out transform ${
+        className={`fixed top-0 left-0 right-0 z-40 bg-white shadow-md transition-transform duration-300 ease-in-out transform ${
           isMobileMenuOpen 
-            ? 'translate-y-0 pt-20 pb-6' 
+            ? 'translate-y-0 pt-16 pb-6' 
             : '-translate-y-full'
         }`}
       >
-        <div className="container mx-auto px-6 py-4">
+        <div className="w-full px-6 py-4">
           <div className="flex flex-col space-y-1">
             {/* Mobile Navigation Links */}
             {[
@@ -134,10 +136,10 @@ const Navbar = () => {
               <Link 
                 key={item.path}
                 to={item.path} 
-                className={`py-3 border-b border-gray-100 flex justify-between items-center ${
+                className={`py-3 border-b border-slate-100 flex justify-between items-center ${
                   location.pathname === item.path 
-                    ? 'text-gray-900 font-medium' 
-                    : 'text-gray-600'
+                    ? 'text-slate-900 font-medium' 
+                    : 'text-slate-600'
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -152,7 +154,7 @@ const Navbar = () => {
             <div className="pt-4">
               <Link 
                 to="/contact" 
-                className="block w-full bg-gray-900 hover:bg-gray-800 text-white text-center px-6 py-3 rounded-md transition-colors"
+                className="block w-full bg-slate-800 hover:bg-slate-700 text-white text-center px-6 py-3 rounded-md transition-colors font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Schedule a Call
@@ -162,8 +164,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Spacer to prevent content from being hidden under the navbar */}
-      <div className={`h-16 ${isScrolled ? 'md:h-16' : 'md:h-20'}`}></div>
+      {/* Adjusted spacer to eliminate gap */}
+      <div className={`h-14 ${isScrolled ? 'h-14' : 'h-16'}`}></div>
     </>
   );
 };
