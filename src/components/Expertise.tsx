@@ -1,8 +1,6 @@
-
 import { useRef, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 
 const expertiseAreas = [
@@ -114,17 +112,17 @@ const Expertise = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section bg-slate-50 py-16">
+    <section ref={sectionRef} className="section bg-white py-16">
       <div className="container mx-auto">
         <div className="animate-on-scroll opacity-0 translate-y-10 transition-all duration-700">
           <Tabs defaultValue="low-self-esteem" className="w-full">
-            <div className="mb-8 overflow-x-auto pb-4">
-              <TabsList className="w-full flex md:inline-flex bg-transparent gap-2">
+            <div className="mb-8">
+              <TabsList className="w-full flex flex-wrap md:inline-flex bg-transparent gap-2 justify-start">
                 {expertiseAreas.map((area) => (
                   <TabsTrigger 
                     key={area.id} 
                     value={area.id}
-                    className="data-[state=active]:bg-white data-[state=active]:text-primary px-4 py-2 rounded-md transition-all whitespace-nowrap text-sm"
+                    className="data-[state=active]:bg-white data-[state=active]:text-primary px-4 py-2 rounded-md transition-all whitespace-nowrap text-sm flex-shrink-0"
                   >
                     {area.title}
                   </TabsTrigger>

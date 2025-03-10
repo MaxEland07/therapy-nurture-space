@@ -13,10 +13,10 @@ const Expertise = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-24">
-        <section className="section">
+      <main className="flex-grow pt-16">
+        <section className="section bg-slate-50">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <span className="inline-block py-1 px-3 bg-therapy-blue/20 text-primary rounded-full font-medium mb-4 text-sm">
                 Expertise
               </span>
