@@ -5,6 +5,7 @@ import JourneySection from "../components/JourneySection";
 import TestimonialsSection from "../components/TestimonialsSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
+import TherapyIntro from "../components/TherapyIntro";
 
 const Index = () => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
+        <TherapyIntro />
         <JourneySection />
         <TestimonialsSection />
         <ContactSection />

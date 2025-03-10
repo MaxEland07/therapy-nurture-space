@@ -32,10 +32,14 @@ const Hero = () => {
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ 
-          backgroundImage: 'url(https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80)', 
-          opacity: 0.7
+          /*backgroundImage: 'url(https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80)', */
+          backgroundImage: 'url(https://images.unsplash.com/photo-1484627147104-f5197bcd6651?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
+          opacity: 0.65
         }}
       />
+      
+      {/* Subtle gradient overlay to enhance text readability */}
+      <div className="absolute inset-0 z-1 bg-gradient-to-r from-slate-900/30 to-slate-800/20"></div>
       
       {/* Content container */}
       <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center">
@@ -44,35 +48,35 @@ const Hero = () => {
           className="max-w-xl transition-all duration-1000 transform opacity-0 translate-y-10 relative"
         >
           {/* Upper mini-navigation path like in the inspiration */}
-          <div className="flex items-center space-x-1 text-white/60 mb-4 font-light text-sm">
+          <div className="flex items-center space-x-1 text-white/80 mb-4 font-light text-sm">
             <span>Home</span>
             <span>/</span>
             <span>Therapy</span>
           </div>
           
-          {/* Main headline */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight mb-8">
+          {/* Main headline - enhanced with text shadow and letter spacing */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight mb-8 tracking-wide" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
             Take Back Control<br />
             of Your Mental Health
           </h1>
           
-          {/* Subheading */}
-          <p className="text-xl text-white/80 mb-10 font-light max-w-lg">
+          {/* Subheading - enhanced with text shadow */}
+          <p className="text-xl text-white/90 mb-10 font-normal max-w-lg" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.2)' }}>
             Effective Mental Health Solutions in Bristol and Online
           </p>
           
-          {/* Description with icon */}
-          <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg max-w-md mb-10">
-            <p className="text-white/90 text-sm font-light leading-relaxed">
+          {/* Description with improved contrast */}
+          <div className="bg-white/15 backdrop-blur-md p-5 rounded-lg max-w-md mb-10 border border-white/10 shadow-lg">
+            <p className="text-white/95 text-sm font-light leading-relaxed">
               Therapy is a transformative journey. Together, we explore challenges, 
               develop insights, and create positive change.
             </p>
           </div>
           
-          {/* CTA button */}
+          {/* CTA button with enhanced visibility */}
           <Link 
             to="/contact" 
-            className="inline-block bg-white text-slate-800 hover:bg-white/90 transition-colors py-3 px-8 rounded-full font-light"
+            className="inline-block bg-white text-slate-800 hover:bg-white/90 transition-colors py-3 px-8 rounded-full font-normal shadow-md hover:shadow-lg"
           >
             Begin Your Journey
           </Link>
@@ -92,5 +96,6 @@ const Hero = () => {
     </div>
   );
 };
+
 
 export default Hero;
