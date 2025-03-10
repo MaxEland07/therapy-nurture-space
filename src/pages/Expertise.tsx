@@ -11,17 +11,17 @@ const Expertise = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      <main className="flex-grow pt-16">
-        <section className="section bg-slate-50">
+      <main className="flex-grow">
+        <section className="py-12 md:py-16 px-6">
           <div className="container mx-auto">
-            <div className="text-center mb-12">
-              <span className="inline-block py-1 px-3 bg-therapy-blue/20 text-primary rounded-full font-medium mb-4 text-sm">
+            <div className="text-center mb-8">
+              <span className="inline-block py-1 px-3 bg-therapy-blue/20 text-primary rounded-full font-medium mb-3 text-sm">
                 Expertise
               </span>
               
-              <h1 className="text-4xl md:text-5xl font-serif mb-6">
+              <h1 className="text-4xl md:text-5xl font-serif mb-4">
                 Areas of Specialisation
               </h1>
               
