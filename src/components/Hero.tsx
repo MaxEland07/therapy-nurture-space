@@ -1,6 +1,4 @@
-
 import { useEffect, useRef } from 'react';
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -29,56 +27,68 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center pt-24 overflow-hidden">
-      {/* Background image with better contrast overlay */}
+    <div className="relative h-screen overflow-hidden bg-slate-700">
+      {/* Background image with architectural calm */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ 
-          backgroundImage: 'url(https://images.unsplash.com/photo-1498673394965-85cb14905c89?auto=format&fit=crop&w=2000&q=80)', 
-          filter: 'brightness(0.85)'
+          backgroundImage: 'url(https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80)', 
+          opacity: 0.7
         }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-therapy-sage/90 to-therapy-blue/60" />
-      </div>
+      />
       
-      <div 
-        ref={heroRef}
-        className="container mx-auto px-6 py-16 md:py-20 relative z-10 transition-all duration-1000 transform opacity-0 translate-y-10 mt-12"
-      >
-        <div className="max-w-3xl">
-          <span className="inline-block py-1.5 px-4 bg-white/20 backdrop-blur-sm text-white rounded-full font-medium mb-6 text-sm animate-fade-in uppercase tracking-wide">
-            Qualified and Accredited CBT Therapist
-          </span>
+      {/* Content container */}
+      <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center">
+        <div 
+          ref={heroRef}
+          className="max-w-xl transition-all duration-1000 transform opacity-0 translate-y-10 relative"
+        >
+          {/* Upper mini-navigation path like in the inspiration */}
+          <div className="flex items-center space-x-1 text-white/60 mb-4 font-light text-sm">
+            <span>Home</span>
+            <span>/</span>
+            <span>Therapy</span>
+          </div>
           
-          <h1 className="text-4xl md:text-6xl font-serif font-semibold text-white leading-tight mb-8 drop-shadow-md">
-            Take Back Control of Your Mental Health
+          {/* Main headline */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight mb-8">
+            Take Back Control<br />
+            of Your Mental Health
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl font-light">
+          {/* Subheading */}
+          <p className="text-xl text-white/80 mb-10 font-light max-w-lg">
             Effective Mental Health Solutions in Bristol and Online
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button asChild className="bg-white text-therapy-sage hover:bg-therapy-cream text-base font-medium px-6 py-6">
-              <Link to="/contact">Start Today with a Free Consultation</Link>
-            </Button>
-            <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 text-base font-medium px-6 py-6">
-              <Link to="/expertise">Learn More</Link>
-            </Button>
+          {/* Description with icon */}
+          <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg max-w-md mb-10">
+            <p className="text-white/90 text-sm font-light leading-relaxed">
+              Therapy is a transformative journey. Together, we explore challenges, 
+              develop insights, and create positive change.
+            </p>
           </div>
           
-          <div className="mt-12 py-2.5 px-5 bg-white/20 backdrop-blur-sm inline-block rounded-lg">
-            <p className="text-white font-medium">A Better Tomorrow Awaits</p>
-          </div>
+          {/* CTA button */}
+          <Link 
+            to="/contact" 
+            className="inline-block bg-white text-slate-800 hover:bg-white/90 transition-colors py-3 px-8 rounded-full font-light"
+          >
+            Begin Your Journey
+          </Link>
         </div>
       </div>
       
-      {/* Decorative elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-therapy-sage/30 to-transparent z-10" />
+      {/* Path/Journey element - similar to the flowing line in the inspiration */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        <svg width="100%" height="200" viewBox="0 0 1440 200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,160 C320,220 420,100 720,160 C1020,220 1320,140 1440,160 L1440,200 L0,200 Z" fill="white"/>
+        </svg>
+      </div>
       
-      {/* Mobile-friendly decorative elements */}
-      <div className="absolute top-1/3 right-0 w-64 h-64 bg-therapy-blue/20 rounded-full -mr-32 hidden md:block" aria-hidden="true" />
-      <div className="absolute bottom-1/4 left-1/4 w-40 h-40 bg-therapy-light-blue/20 rounded-full hidden md:block" aria-hidden="true" />
+      {/* Journey markers - circles on the path */}
+      <div className="absolute bottom-36 left-1/4 z-20 w-6 h-6 rounded-full bg-white shadow-lg animate-pulse"></div>
+      <div className="absolute bottom-24 right-1/3 z-20 w-4 h-4 rounded-full bg-white shadow-lg"></div>
     </div>
   );
 };
