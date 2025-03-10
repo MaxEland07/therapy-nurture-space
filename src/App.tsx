@@ -11,8 +11,6 @@ import Fees from "./pages/Fees";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import Resources from "./pages/Resources";
-import Specialties from "./pages/Specialties";
 
 const queryClient = new QueryClient();
 
@@ -29,8 +27,6 @@ const App = () => (
           <Route path="/fees" element={<Fees />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/specialties" element={<Specialties />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
@@ -39,3 +35,4 @@ const App = () => (
 );
 
 export default App;
+
