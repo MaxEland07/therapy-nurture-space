@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
 
@@ -32,7 +33,6 @@ const Hero = () => {
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ 
-          /*backgroundImage: 'url(https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80)', */
           backgroundImage: 'url(https://images.unsplash.com/photo-1484627147104-f5197bcd6651?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
           opacity: 0.65
         }}
@@ -55,7 +55,7 @@ const Hero = () => {
           </div>
           
           {/* Main headline - enhanced with text shadow and letter spacing */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight mb-8 tracking-wide" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-tight mb-8 tracking-wide" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
             Take Back Control<br />
             of Your Mental Health
           </h1>
@@ -96,6 +96,5 @@ const Hero = () => {
     </div>
   );
 };
-
 
 export default Hero;

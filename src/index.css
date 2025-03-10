@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -78,23 +78,23 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-display font-medium;
   }
   
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-semibold;
+    @apply text-4xl md:text-5xl lg:text-6xl;
   }
   
   h2 {
-    @apply text-3xl md:text-4xl font-semibold;
+    @apply text-3xl md:text-4xl;
   }
   
   h3 {
-    @apply text-2xl md:text-3xl font-medium;
+    @apply text-2xl md:text-3xl;
   }
   
   h4 {
-    @apply text-xl md:text-2xl font-medium;
+    @apply text-xl md:text-2xl;
   }
 }
 
@@ -143,8 +143,6 @@
 .page-exit-active {
   @apply opacity-0;
 }
-
-/* Add these custom styles for the flowing design elements */
 
 .clip-diagonal {
   clip-path: polygon(100% 0, 100% 100%, 0 100%, 20% 0);

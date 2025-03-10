@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -19,7 +20,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="font-serif text-white text-xl">
+          <Link to="/" className="font-display text-white text-xl">
             <span className="font-light">Holland-</span>
             <span className="font-medium">Pearse</span>
           </Link>
