@@ -1,4 +1,3 @@
-
 import { useRef, useEffect, useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
@@ -133,7 +132,7 @@ const Expertise = () => {
           <Tabs defaultValue="low-self-esteem" className="w-full">
             {isMobile ? (
               <div className="mb-6 relative">
-                <div className="overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4">
+                <div className="overflow-x-auto pb-4 -mx-4 px-4 flex no-scrollbar">
                   <TabsList className="inline-flex bg-transparent space-x-2 min-w-max">
                     {expertiseAreas.map((area) => (
                       <TabsTrigger 
@@ -147,8 +146,8 @@ const Expertise = () => {
                   </TabsList>
                 </div>
                 {/* Fade indicators to show scrollability */}
-                <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
-                <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
+                <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent pointer-events-none z-10"></div>
+                <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white to-transparent pointer-events-none z-10"></div>
               </div>
             ) : (
               <div className="mb-8">
