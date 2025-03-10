@@ -1,5 +1,7 @@
+
 import { useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -53,11 +55,8 @@ const Hero = () => {
         aria-label="Person finding peace in nature"
       />
       
-      {/* Enhanced gradient overlay for better text contrast */}
-      <div className="absolute inset-0 z-1 bg-gradient-to-br from-slate-900/50 via-slate-800/40 to-slate-700/30"></div>
-      
-      {/* Subtle texture overlay */}
-      <div className="absolute inset-0 z-1 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMDAwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMyMjIiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=')] opacity-5"></div>
+      {/* Enhanced gradient overlay with stronger opacity for better text contrast */}
+      <div className="absolute inset-0 z-1 bg-gradient-to-b from-slate-900/70 via-slate-800/60 to-slate-700/40"></div>
       
       {/* Content container with improved spacing */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center">
@@ -66,98 +65,96 @@ const Hero = () => {
           className="max-w-xl transition-all duration-1000 transform opacity-0 translate-y-10 relative"
         >
           {/* Enhanced qualification badge with improved visibility */}
-          <div className="inline-block bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 rounded-full text-white mb-4 sm:mb-5 font-light text-xs sm:text-sm 
-            border border-white/10 shadow-sm transform hover:scale-102 transition-transform">
+          <div className="inline-block bg-white/30 backdrop-blur-md px-3 py-1.5 rounded-full text-white mb-4 text-xs sm:text-sm 
+            border border-white/20 shadow-lg transform hover:scale-102 transition-transform">
             <span className="tracking-wider">✓ Qualified and Accredited CBT Therapist</span>
           </div>
           
           {/* Decorative line with WARM color */}
-          <div className="w-14 h-1 bg-amber-300 mb-5 sm:mb-6 rounded-full"></div>
+          <div className="w-12 h-1 bg-amber-300 mb-4 sm:mb-6 rounded-full"></div>
           
-          {/* Enhanced main headline with staggered word animation and text-shadow */}
-          <h1 
-            ref={headlineRef}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-4 sm:mb-6 tracking-wide"
-            style={{ textShadow: '0 2px 10px rgba(0,0,0,0.2)' }}
-          >
-            <span className="inline-block">
-              <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block font-light">Take</span>
+          {/* Content container with backdrop blur for improved text readability */}
+          <div className="bg-black/10 backdrop-blur-sm p-4 rounded-lg sm:bg-transparent sm:backdrop-blur-0 sm:p-0">
+            {/* Enhanced main headline with staggered word animation */}
+            <h1 
+              ref={headlineRef}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-display leading-tight mb-3 sm:mb-6 tracking-wide"
+              style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}
+            >
+              <span className="inline-block">
+                <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block font-light">Take</span>
+                {" "}
+                <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block font-light">Back</span>
+              </span>
               {" "}
-              <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block font-light">Back</span>
-            </span>
-            {" "}
-            <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block font-medium relative">
-              Control
-              
-            </span>
-            <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>
-            <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block font-light">of</span>
-            {" "}
-            <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block font-light">Your</span>
-            {" "}
-            <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block">
-              <span className="font-medium text-amber-300">Mental</span>
-            </span>
-            {" "}
-            <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block">
-              <span className="font-medium text-amber-300">Health</span>
-            </span>
-          </h1>
-          
-          {/* Enhanced subheading with improved contrast and spacing */}
-          <h2 className="relative text-lg sm:text-xl text-white/95 mb-7 sm:mb-10 font-light max-w-lg leading-relaxed 
-                         tracking-wide border-l-2 border-orange-300/50 pl-4">
-            <span className="font-medium">Effective</span> Mental Health Solutions in Bristol and Online
-          </h2>
-          
-          {/* Enhanced description box with improved visibility */}
-          <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-5 rounded-lg max-w-md mb-7 sm:mb-10 
-                          border border-white/10 shadow-lg transform transition-all">
-            <p className="text-white/95 text-xs sm:text-sm leading-relaxed tracking-wide">
-              Start Today with a <span className="font-medium text-amber-300">Free Consultation</span> – A Better Tomorrow Awaits
-            </p>
+              <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block font-medium relative">
+                Control
+              </span>
+              <br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
+              <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block font-light">of</span>
+              {" "}
+              <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block font-light">Your</span>
+              {" "}
+              <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block">
+                <span className="font-medium text-amber-300">Mental</span>
+              </span>
+              {" "}
+              <span className="animate-word opacity-0 translate-y-3 transition-all duration-500 inline-block">
+                <span className="font-medium text-amber-300">Health</span>
+              </span>
+            </h1>
+            
+            {/* Simplified subheading with better spacing and contrast */}
+            <div className="border-l-2 border-orange-300/70 pl-3 mb-5 sm:mb-8">
+              <h2 className="text-md sm:text-xl text-white font-light leading-relaxed tracking-wide">
+                <span className="font-medium">Effective</span> Mental Health Solutions in Bristol and Online
+              </h2>
+            </div>
           </div>
           
-          {/* CTA section */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 relative">
+          {/* Clean and compact CTA section with improved spacing */}
+          <div className="space-y-4 sm:space-y-6 mt-2 sm:mt-4">
+            {/* Simplified offer box */}
+            <div className="inline-block bg-white/20 backdrop-blur-md py-2 px-4 rounded-md text-white text-sm sm:text-base">
+              Start Today with a <span className="font-medium text-amber-300">Free Consultation</span>
+            </div>
             
-            {/* Enhanced primary CTA button with better mobile visibility */}
-            <Link 
-              to="/contact" 
-              className="bg-white text-slate-800 hover:bg-white/90 py-3 sm:py-3.5 px-6 sm:px-8 rounded-full text-base font-medium 
-                        transition-all duration-300 backdrop-blur-sm shadow-md hover:shadow-lg flex justify-center items-center 
-                        hover:-translate-y-0.5 border border-white/90 hover:border-white-200"
-            >
-              <span className="mr-2">Schedule a Call</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
-            
-            {/* Enhanced secondary link with better visibility */}
-            <Link 
-              to="/about" 
-              className="text-white transition-colors py-3.5 px-4 text-sm text-center sm:text-left flex items-center justify-center sm:justify-start
-                        hover:bg-white/10 rounded-full hover:shadow-sm"
-            >
-              <span>Learn More</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
+            {/* CTA buttons with improved spacing */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Link 
+                to="/contact" 
+                className="bg-white/90 text-slate-800 hover:bg-white py-3 px-6 rounded-full text-base font-medium 
+                          transition-all duration-300 shadow-lg hover:shadow-xl flex justify-center items-center gap-2
+                          hover:-translate-y-0.5"
+              >
+                Schedule a Call
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
+              
+              <Link 
+                to="/about" 
+                className="text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors py-3 px-6 rounded-full text-base
+                          flex items-center justify-center gap-1"
+              >
+                Learn More
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
       
-      {/* Path/Journey element - maintained */}
+      {/* Path/Journey element - maintained but simplified */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
-        <svg width="100%" height="150" viewBox="0 0 1440 200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,160 C320,220 420,100 720,160 C1020,220 1320,140 1440,160 L1440,200 L0,200 Z" fill="white" />
+        <svg width="100%" height="100" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,60 C320,100 420,30 720,60 C1020,90 1320,40 1440,60 L1440,100 L0,100 Z" fill="white" />
         </svg>
       </div>
-      
-      
     </section>
   );
 };
