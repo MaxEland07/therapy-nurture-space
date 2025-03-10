@@ -4,7 +4,7 @@ const ContactSection = () => {
   return (
     <section className="py-20 bg-white relative overflow-hidden">
       {/* Background architectural element */}
-      <div className="absolute top-0 right-0 bottom-0 w-1/2 bg-slate-50 clip-diagonal z-0"></div>
+      
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

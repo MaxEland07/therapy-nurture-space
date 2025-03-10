@@ -6,6 +6,7 @@ import TestimonialsSection from "../components/TestimonialsSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import TherapyIntro from "../components/TherapyIntro";
+import AboutMeSection from "../components/AboutMeSection";
 
 const Index = () => {
   useEffect(() => {
@@ -19,6 +20,7 @@ const Index = () => {
         <Hero />
         <TherapyIntro />
         <JourneySection />
+        <AboutMeSection />
         <TestimonialsSection />
         <ContactSection />
       </main>
