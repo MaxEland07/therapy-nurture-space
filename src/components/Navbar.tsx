@@ -55,10 +55,13 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between">
-            {/* Logo area */}
+            {/* Logo area with image */}
             <Link to="/" className="flex items-center">
-              <span className="text-xl font-medium text-gray-800">Holland<span className="font-light">-Pearse</span></span>
-              <span className="text-sm text-gray-500 ml-2">Psychotherapy</span>
+              <img 
+                src="https://holland-pearse.com/wp-content/uploads/2022/09/Holland-Pearse-Logo.png" 
+                alt="Holland-Pearse Psychotherapy" 
+                className="h-10 md:h-12"
+              />
             </Link>
 
             {/* Desktop navigation */}
