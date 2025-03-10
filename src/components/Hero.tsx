@@ -59,7 +59,7 @@ const Hero = () => {
               <div className="mt-6">
                 <Link 
                   to="/contact" 
-                  className="inline-block bg-white border-2 border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-white transition-colors duration-300 px-10 py-3 uppercase font-semibold tracking-wider text-base shadow-sm"
+                  className="inline-block bg-white border-2 border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-white transition-colors duration-300 px-10 py-3 uppercase font-semibold tracking-wider text-base shadow-sm rounded-md"
                 >
                   Let's Do This!
                 </Link>
@@ -127,12 +127,15 @@ const Hero = () => {
             </p>
           </div>
           
-          <Link 
-            to="/contact" 
-            className="inline-block bg-white text-slate-800 px-10 py-3 uppercase font-semibold tracking-wider text-sm shadow-md w-full text-center"
-          >
-            Let's Do This!
-          </Link>
+          {/* Mobile button - updated to NOT be full width */}
+          <div className="flex justify-center"> {/* Center the button */}
+            <Link 
+              to="/contact" 
+              className="inline-block bg-white text-slate-800 px-10 py-3 uppercase font-semibold tracking-wider text-sm shadow-md rounded-md mx-auto max-w-xs"
+            >
+              Let's Do This!
+            </Link>
+          </div>
         </div>
       </div>
     </section>

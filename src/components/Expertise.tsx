@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
@@ -116,42 +115,29 @@ const Expertise = () => {
   return (
     <section ref={sectionRef} className="section bg-therapy-light-blue/20 py-16">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <span className="inline-block py-1 px-3 bg-therapy-blue/30 text-primary rounded-full font-medium mb-4 text-sm animate-on-scroll opacity-0 translate-y-10 transition-all duration-700">
-            Areas of Expertise
-          </span>
-          
-          <h2 className="text-3xl md:text-4xl font-serif mb-6 animate-on-scroll opacity-0 translate-y-10 transition-all duration-700 delay-100">
-            My Specialisations
-          </h2>
-          
-          <p className="text-muted-foreground max-w-2xl mx-auto animate-on-scroll opacity-0 translate-y-10 transition-all duration-700 delay-200">
-            I provide evidence-based therapy for a range of mental health challenges.
-            My approach is tailored to your unique needs and circumstances.
-          </p>
-        </div>
-        
-        <div className="animate-on-scroll opacity-0 translate-y-10 transition-all duration-700 delay-300">
+        <div className="animate-on-scroll opacity-0 translate-y-10 transition-all duration-700">
           <Tabs defaultValue="low-self-esteem" className="w-full">
-            <TabsList className="w-full flex flex-wrap justify-center mb-8 bg-transparent gap-1 md:gap-2">
-              {expertiseAreas.map((area) => (
-                <TabsTrigger 
-                  key={area.id} 
-                  value={area.id}
-                  className="data-[state=active]:bg-white data-[state=active]:text-primary px-3 md:px-4 py-2 rounded-md transition-all text-xs md:text-sm"
-                >
-                  {area.title}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+            <div className="mb-8 overflow-x-auto pb-4">
+              <TabsList className="w-full flex md:inline-flex bg-transparent gap-2">
+                {expertiseAreas.map((area) => (
+                  <TabsTrigger 
+                    key={area.id} 
+                    value={area.id}
+                    className="data-[state=active]:bg-white data-[state=active]:text-primary px-4 py-2 rounded-md transition-all whitespace-nowrap text-sm"
+                  >
+                    {area.title}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
             
             {expertiseAreas.map((area) => (
               <TabsContent 
                 key={area.id} 
                 value={area.id}
-                className="bg-white rounded-2xl p-6 md:p-8 shadow-sm animate-fade-in"
+                className="bg-white rounded-2xl p-5 md:p-8 shadow-sm animate-fade-in mt-4"
               >
-                <div className="grid md:grid-cols-5 gap-8">
+                <div className="grid md:grid-cols-5 gap-6 md:gap-8">
                   <div className="md:col-span-3">
                     <h3 className="text-2xl font-serif mb-4">{area.title}</h3>
                     <p className="text-muted-foreground mb-6">{area.description}</p>
