@@ -42,7 +42,7 @@ const JourneySection = () => {
                   number.classList.add('scale-100');
                   number.classList.remove('scale-0');
                 }
-              }, 400 + index * 800); // Longer delay between steps for more dramatic effect
+              }, 400 + index * 600); // Reduced delay between steps
             });
           }
         }
@@ -80,7 +80,7 @@ const JourneySection = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-28 bg-white relative overflow-hidden">
+    <section ref={sectionRef} className="py-12 md:py-16 bg-white relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-40"></div>
       
@@ -91,30 +91,30 @@ const JourneySection = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Section header with animation */}
-        <div className="text-center mb-20">
-          <h2 className="section-title text-3xl md:text-4xl font-light text-slate-800 mb-4 tracking-wide opacity-0 translate-y-8 transition-all duration-1000 delay-300">
+        <div className="text-center mb-10">
+          <h2 className="section-title text-3xl md:text-4xl font-light text-slate-800 mb-3 tracking-wide opacity-0 translate-y-8 transition-all duration-1000 delay-300">
             Your Path to Wellbeing
           </h2>
           <div className="w-16 h-0.5 bg-therapy-sage mx-auto transition-all duration-1000 delay-500"></div>
         </div>
         
-        {/* Timeline container */}
-        <div className="max-w-5xl mx-auto relative pt-10">
+        {/* Timeline container - with reduced spacing */}
+        <div className="max-w-5xl mx-auto relative pt-5">
           {/* Central timeline */}
           <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-slate-100"></div>
           
           {journeySteps.map((step, index) => (
             <div 
               key={index} 
-              className={`journey-step relative opacity-0 transition-opacity duration-700 mb-24 ${
+              className={`journey-step relative opacity-0 transition-opacity duration-700 mb-14 ${
                 index % 2 === 0 ? 'text-right' : 'text-left'
               }`}
             >
               {/* Timeline marker with number */}
               <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
                 <div className="step-number transform scale-0 transition-transform duration-1000 ease-out">
-                  <div className="w-20 h-20 rounded-full bg-white border border-teal-600 flex items-center justify-center shadow-lg">
-                    <span className="text-xl font-light text-teal-600">{step.number}</span>
+                  <div className="w-16 h-16 rounded-full bg-white border border-teal-600 flex items-center justify-center shadow-lg">
+                    <span className="text-lg font-light text-teal-600">{step.number}</span>
                   </div>
                   
                   {/* Growing line from circle */}
@@ -124,9 +124,9 @@ const JourneySection = () => {
                 </div>
               </div>
               
-              {/* Content box */}
+              {/* Content box - with reduced padding and margins */}
               <div 
-                className={`grid grid-cols-1 md:grid-cols-2 gap-8 ${
+                className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${
                   index % 2 === 0 
                     ? 'md:text-right' 
                     : 'md:text-left md:grid-flow-col-dense'
@@ -139,13 +139,13 @@ const JourneySection = () => {
                       : 'md:col-start-2'
                   }`}
                 >
-                  <div className={`bg-white p-6 md:p-8 shadow-lg border border-slate-100 ${
+                  <div className={`bg-white p-4 md:p-6 shadow-lg border border-slate-100 ${
                     index % 2 === 0 ? 'ml-auto mr-10' : 'mr-auto ml-10'
                   }`}>
-                    <h3 className="text-xl md:text-2xl font-light text-slate-800 mb-4">
+                    <h3 className="text-xl font-light text-slate-800 mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-slate-600 leading-relaxed">
+                    <p className="text-slate-600 leading-relaxed text-sm">
                       {step.description}
                     </p>
                   </div>
@@ -158,18 +158,18 @@ const JourneySection = () => {
             </div>
           ))}
           
-          {/* Final CTA */}
-          <div className="text-center mt-12 pt-10 opacity-0 translate-y-10 transition-all duration-1000 delay-2000">
-            <h3 className="text-2xl font-light text-slate-800 mb-6">
+          {/* Final CTA - reduced top padding */}
+          <div className="text-center mt-8 pt-4 opacity-0 translate-y-10 transition-all duration-1000 delay-2000">
+            <h3 className="text-xl font-light text-slate-800 mb-4">
               Start Your New Narrative Today
             </h3>
-            <p className="text-slate-600 mb-8 max-w-lg mx-auto">
+            <p className="text-slate-600 mb-6 max-w-lg mx-auto">
               Take the first step toward a healthier mind and a more fulfilling life.
             </p>
             
             <Link 
               to="/contact" 
-              className="inline-block bg-therapy-sage text-white hover:bg-therapy-sage/90 transition-colors py-3 px-8 font-medium uppercase tracking-wider text-sm shadow-md hover:shadow-lg"
+              className="inline-block bg-therapy-sage text-white hover:bg-therapy-sage/90 transition-colors py-2 px-6 font-medium uppercase tracking-wider text-sm shadow-md hover:shadow-lg"
             >
               Schedule a Meeting
             </Link>
