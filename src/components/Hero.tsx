@@ -41,51 +41,52 @@ const Hero = () => {
         aria-label="Person finding peace in nature"
       />
       
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 z-1 bg-gradient-to-r from-slate-900/30 to-slate-800/20"></div>
+      {/* Subtle gradient overlay - matching navbar slate-700 base */}
+      <div className="absolute inset-0 z-1 bg-gradient-to-r from-slate-800/40 to-slate-700/30"></div>
       
-      {/* Content container */}
-      <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center">
+      {/* Content container - added px-4 sm:px-6 for better mobile spacing */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center">
         <div 
           ref={heroRef} 
           className="max-w-xl transition-all duration-1000 transform opacity-0 translate-y-10 relative"
         >
-          {/* Qualification badge */}
-          <div className="text-white/80 mb-4 font-light text-sm">
+          {/* Qualification badge - responsive sizing */}
+          <div className="inline-block bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 rounded-full text-white/90 mb-3 sm:mb-4 font-light text-xs sm:text-sm">
             <span>Qualified and Accredited CBT Therapist</span>
           </div>
           
-          {/* Main headline */}
+          {/* Main headline - improved mobile sizing */}
           <h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-tight mb-8 tracking-wide"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-tight mb-4 sm:mb-8 tracking-wide"
           >
-            Take Back Control<br />
-            of Your Mental Health
+            <span className="font-light">Take Back</span> Control<br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>of Your Mental Health
           </h1>
           
-          {/* Subheading */}
-          <h2 className="text-xl text-white/90 mb-10 font-normal max-w-lg">
+          {/* Subheading - improved for mobile */}
+          <h2 className="text-lg sm:text-xl text-white/90 mb-6 sm:mb-10 font-light max-w-lg">
             Effective Mental Health Solutions in Bristol and Online
           </h2>
           
-          {/* Description box */}
-          <div className="bg-white/15 backdrop-blur-md p-5 rounded-lg max-w-md mb-10 border border-white/10 shadow-lg">
-            <p className="text-white/95 text-sm leading-relaxed">
+          {/* Description box - made more mobile-friendly */}
+          <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-5 rounded-lg max-w-md mb-6 sm:mb-10">
+            <p className="text-white/90 text-xs sm:text-sm leading-relaxed">
               Start Today with a Free Consultation – A Better Tomorrow Awaits
             </p>
           </div>
           
-          {/* CTAs - with minimal styling */}
-          <div className="flex gap-4">
+          {/* CTA - vertical on mobile, horizontal on larger screens */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            {/* More prominent primary CTA button */}
             <Link 
               to="/contact" 
-              className="inline-block bg-white text-slate-800 hover:bg-white/90 transition-colors py-3 px-8 rounded-full font-normal shadow-md hover:shadow-lg"
+              className="bg-white text-slate-800 hover:bg-white/90 py-3 sm:py-3.5 px-6 sm:px-8 rounded-full text-base font-medium transition-all duration-300 backdrop-blur-sm shadow-md hover:shadow-lg flex justify-center items-center hover:-translate-y-0.5"
             >
-              Begin Your Journey
+              Schedule a Call
             </Link>
             <Link 
               to="/about" 
-              className="inline-block text-white hover:text-white/90 transition-colors py-3 px-8 font-normal"
+              className="text-white/90 hover:text-white transition-colors py-3.5 px-4 text-sm text-center sm:text-left"
             >
               Learn More
             </Link>
@@ -93,15 +94,15 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Path/Journey element - wave at bottom */}
+      {/* Path/Journey element - maintained */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
-        <svg width="100%" height="200" viewBox="0 0 1440 200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <svg width="100%" height="150" viewBox="0 0 1440 200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <path d="M0,160 C320,220 420,100 720,160 C1020,220 1320,140 1440,160 L1440,200 L0,200 Z" fill="white" />
         </svg>
       </div>
       
-      {/* Just one subtle journey marker */}
-      <div className="absolute bottom-36 left-1/4 z-20 w-3 h-3 rounded-full bg-white shadow-lg animate-pulse"></div>
+      {/* Journey marker - maintained */}
+      <div className="absolute bottom-36 left-1/4 z-20 w-3 h-3 rounded-full bg-white/30 shadow-lg"></div>
     </section>
   );
 };

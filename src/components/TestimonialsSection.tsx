@@ -47,6 +47,26 @@ const TestimonialsSection = () => {
       }, 8000);
     }
   };
+
+  // Navigation functions for carousel
+  const nextTestimonial = () => {
+    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    resetTimer();
+  };
+
+  const prevTestimonial = () => {
+    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    resetTimer();
+  };
+
+  const resetTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = setInterval(() => {
+        setActiveIndex(prev => (prev + 1) % testimonials.length);
+      }, 8000);
+    }
+  };
   
   // Animation variants
   const containerVariants = {
@@ -58,9 +78,15 @@ const TestimonialsSection = () => {
       } 
     }
   };
+
+  // Truncate long quotes for mobile view
+  const truncateQuote = (quote: string, maxLength: number = 150) => {
+    if (quote.length <= maxLength) return quote;
+    return quote.substring(0, maxLength) + '...';
+  };
   
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-12 md:py-20 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div 
           className="max-w-6xl mx-auto"
@@ -70,17 +96,84 @@ const TestimonialsSection = () => {
           variants={containerVariants}
         >
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
             }}
           >
-            <h2 className="text-3xl md:text-4xl font-medium text-slate-800 mb-3">Testimonials</h2>
-            
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-slate-800 mb-3">Testimonials</h2>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Mobile View - Carousel */}
+          <div className="md:hidden">
+            <div className="relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white rounded-xl p-6 shadow-[0_5px_15px_rgba(0,0,0,0.05)] border border-gray-100 min-h-[250px] flex flex-col relative overflow-hidden"
+                >
+                  {/* Quote mark decorative element */}
+                  <div className="absolute -top-2 -left-2 text-therapy-sage/10 text-[100px] leading-none font-serif">"</div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col h-full">
+                    <p className="text-gray-700 mb-4 flex-grow font-light leading-relaxed text-sm">
+                      {testimonials[activeIndex].quote}
+                    </p>
+                    <div className="text-sm font-medium text-gray-500 mt-auto border-t border-gray-100 pt-3">
+                      {testimonials[activeIndex].author}
+                    </div>
+                  </div>
+                  
+                  {/* Decorative accent */}
+                  <div className="absolute bottom-0 right-0 w-16 h-16 bg-therapy-sage/5 rounded-tl-full"></div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Navigation arrows */}
+              <button 
+                onClick={prevTestimonial}
+                className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center z-20 text-slate-600 hover:text-slate-800"
+                aria-label="Previous testimonial"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              
+              <button 
+                onClick={nextTestimonial}
+                className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center z-20 text-slate-600 hover:text-slate-800"
+                aria-label="Next testimonial"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === activeIndex ? "bg-therapy-sage w-6" : "bg-gray-300"
+                  }`}
+                  onClick={() => handleDotClick(index)}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+          
+          {/* Desktop View - Grid */}
+          <div className="hidden md:grid md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
@@ -107,7 +200,7 @@ const TestimonialsSection = () => {
                 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col h-full">
-                  <div className="text-therapy-blue text-3xl mb-4">"</div>
+                  <div className="text-therapy-blue text-3xl mb-4"></div>
                   <p className="text-gray-700 mb-6 flex-grow font-light leading-relaxed">
                     {testimonial.quote}
                   </p>
@@ -122,8 +215,8 @@ const TestimonialsSection = () => {
             ))}
           </div>
           
-          <div className="text-center mt-12">
-            <button className="px-8 py-3 bg-therapy-sage text-white rounded-lg hover:bg-therapy-sage/90 transition-all duration-300 shadow-md hover:shadow-lg transform hover:translate-y-[-2px] text-sm font-medium tracking-wide">
+          <div className="text-center mt-8 md:mt-12">
+            <button className="px-6 py-2.5 md:px-8 md:py-3 bg-slate-700 text-white rounded-lg hover:bg-slate-700/90 transition-all duration-300 shadow-md hover:shadow-lg transform hover:translate-y-[-2px] text-xs md:text-sm font-medium tracking-wide">
               VIEW ALL TESTIMONIALS
             </button>
           </div>
