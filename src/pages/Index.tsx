@@ -7,6 +7,8 @@ import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import TherapyIntro from "../components/TherapyIntro";
 import AboutMeSection from "../components/AboutMeSection";
+import { Analytics } from "@vercel/analytics/react"
+
 
 const Index = () => {
   useEffect(() => {
