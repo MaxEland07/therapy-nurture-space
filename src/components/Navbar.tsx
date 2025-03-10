@@ -1,6 +1,7 @@
 
 import { Brain, Flame, Heart } from 'lucide-react';
 import { Navbar1 } from "@/components/ui/navbar1";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navbarData = {

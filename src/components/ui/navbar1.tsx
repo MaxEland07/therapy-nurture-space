@@ -71,25 +71,25 @@ const Navbar1 = ({
   },
 }: Navbar1Props) => {
   return (
-    <section className="py-4 bg-therapy-blue text-white">
-      <div className="container">
+    <section className="py-5 bg-therapy-sage text-white">
+      <div className="container mx-auto px-4">
         <nav className="hidden justify-between lg:flex">
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-8">
             <Link to={logo.url} className="flex items-center gap-2">
               {logo.src && <img src={logo.src} className="w-8" alt={logo.alt} />}
-              <span className="text-lg font-serif font-medium">{logo.title}</span>
-              <span className="text-sm text-therapy-cream/80">Psychotherapy</span>
+              <span className="text-xl font-serif font-medium">{logo.title}</span>
+              <span className="text-sm text-white/80 ml-1">Psychotherapy</span>
             </Link>
             <div className="flex items-center">
               <NavigationMenu>
-                <NavigationMenuList>
+                <NavigationMenuList className="space-x-1">
                   {menu.map((item) => renderMenuItem(item))}
                 </NavigationMenuList>
               </NavigationMenu>
             </div>
           </div>
           <div className="flex gap-2">
-            <Button asChild variant="outline" className="bg-white text-therapy-blue hover:bg-therapy-cream">
+            <Button asChild variant="outline" className="bg-white text-therapy-sage hover:bg-therapy-cream border-white py-2 px-5">
               <Link to={auth.login.url}>{auth.login.text}</Link>
             </Button>
           </div>
@@ -99,11 +99,11 @@ const Navbar1 = ({
             <Link to={logo.url} className="flex items-center gap-2">
               {logo.src && <img src={logo.src} className="w-8" alt={logo.alt} />}
               <span className="text-lg font-serif font-medium">{logo.title}</span>
-              <span className="text-sm text-therapy-cream/80">Psychotherapy</span>
+              <span className="text-sm text-white/80">Psychotherapy</span>
             </Link>
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="border-white text-white hover:bg-therapy-blue/80">
+                <Button variant="outline" size="icon" className="border-white text-white hover:bg-therapy-sage/80">
                   <Menu className="size-4" />
                 </Button>
               </SheetTrigger>
@@ -143,7 +143,7 @@ const Navbar1 = ({
                     </div>
                   )}
                   <div className="flex flex-col gap-3">
-                    <Button asChild className="bg-primary text-white">
+                    <Button asChild className="bg-therapy-sage text-white">
                       <Link to={auth.login.url}>{auth.login.text}</Link>
                     </Button>
                   </div>
@@ -161,17 +161,17 @@ const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title} className="text-white">
-        <NavigationMenuTrigger className="bg-transparent text-white hover:bg-therapy-blue/90 focus:bg-therapy-blue/90">
+        <NavigationMenuTrigger className="bg-transparent text-white hover:bg-therapy-sage/90 focus:bg-therapy-sage/90">
           {item.title}
         </NavigationMenuTrigger>
         <NavigationMenuContent>
-          <ul className="w-56 bg-therapy-blue p-2">
+          <ul className="w-56 bg-white p-2 rounded-md shadow-lg">
             <NavigationMenuLink asChild>
               <div>
                 {item.items.map((subItem) => (
                   <li key={subItem.title}>
                     <Link
-                      className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-therapy-blue/80 text-white"
+                      className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-therapy-sage/10 text-therapy-sage"
                       to={subItem.url}
                     >
                       <div>
@@ -179,7 +179,7 @@ const renderMenuItem = (item: MenuItem) => {
                           {subItem.title}
                         </div>
                         {subItem.description && (
-                          <p className="text-sm leading-snug text-therapy-cream/80">
+                          <p className="text-sm leading-snug text-muted-foreground">
                             {subItem.description}
                           </p>
                         )}
@@ -198,7 +198,7 @@ const renderMenuItem = (item: MenuItem) => {
   return (
     <Link
       key={item.title}
-      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-therapy-blue/80"
+      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-therapy-sage/80"
       to={item.url}
     >
       {item.title}

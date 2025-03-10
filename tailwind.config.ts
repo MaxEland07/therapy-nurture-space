@@ -64,11 +64,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				therapy: {
-					'blue': '#ACCBEE',
+					'blue': '#5889C4', // Deeper blue
 					'light-blue': '#E7F0FD',
 					'sand': '#EAE7DC',
 					'cream': '#F8F5F0',
-					'sage': '#8D9F87',
+					'sage': '#5A7D72', // Richer sage green
 				}
 			},
 			fontFamily: {

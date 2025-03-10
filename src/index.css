@@ -83,33 +83,33 @@
   }
   
   h1 {
-    @apply text-4xl md:text-5xl font-medium;
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold;
   }
   
   h2 {
-    @apply text-3xl md:text-4xl font-medium;
+    @apply text-3xl md:text-4xl font-semibold;
   }
   
   h3 {
-    @apply text-2xl md:text-3xl;
+    @apply text-2xl md:text-3xl font-medium;
   }
   
   h4 {
-    @apply text-xl md:text-2xl;
+    @apply text-xl md:text-2xl font-medium;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-primary text-primary-foreground rounded-md font-medium transition-all duration-300 hover:translate-y-[-2px] hover:shadow-md active:translate-y-[0];
+    @apply px-6 py-3 bg-therapy-sage text-white rounded-md font-medium transition-all duration-300 hover:translate-y-[-2px] hover:shadow-md active:translate-y-[0];
   }
 
   .nav-link {
-    @apply relative px-2 py-1 text-foreground hover:text-primary transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+    @apply relative px-2 py-1 text-foreground hover:text-therapy-sage transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-therapy-sage after:transition-all after:duration-300 hover:after:w-full;
   }
 
   .nav-link.active {
-    @apply text-primary after:w-full;
+    @apply text-therapy-sage after:w-full;
   }
 
   .section {
