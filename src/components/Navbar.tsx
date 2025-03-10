@@ -69,10 +69,12 @@ const Navbar = () => {
             {/* Desktop navigation with improved spacing */}
             <div className="hidden md:flex items-center space-x-10">
               {[
-                { path: '/specialties', label: 'Specialties' },
+                
                 { path: '/about', label: 'About & FAQs' },
                 { path: '/expertise', label: 'Expertise' },
-                { path: '/resources', label: 'Resources' }
+                { path: '/Blog', label: 'Blog' },
+                { path: '/Fees & Insurance', label: 'Fees & Insurance' },
+                { path: '/Contact', label: 'Contact' }
               ].map((item) => (
                 <Link 
                   key={item.path}
