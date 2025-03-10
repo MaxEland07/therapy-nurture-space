@@ -52,11 +52,13 @@ const Navbar = () => {
       }`}>
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between">
-            {/* Logo with subtle enhancement */}
-            <Link to="/" className="font-display text-white text-xl relative group">
-              <span className="font-light">Holland-</span>
-              <span className="font-medium">Pearse</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-therapy-sage group-hover:w-full transition-all duration-300"></span>
+            {/* Logo with image */}
+            <Link to="/" className="relative group">
+              <img 
+                src="https://holland-pearse.com/wp-content/uploads/2022/09/Holland-Pearse-Logo.png" 
+                alt="Holland-Pearse Therapy" 
+                className="h-10 sm:h-12 transition-all duration-300 hover:opacity-90" 
+              />
             </Link>
 
             {/* Center navigation - enhanced with active state */}
