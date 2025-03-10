@@ -8,13 +8,40 @@ const JourneySection = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          // Animate the section title
+          const title = sectionRef.current?.querySelector('.section-title');
+          title?.classList.add('opacity-100');
+          title?.classList.remove('opacity-0', 'translate-y-8');
+          
+          // Animate steps with staggered delay
           if (sectionRef.current) {
             const steps = sectionRef.current.querySelectorAll('.journey-step');
             steps.forEach((step, index) => {
               setTimeout(() => {
-                step.classList.add('opacity-100', 'translate-y-0');
-                step.classList.remove('opacity-0', 'translate-y-10');
-              }, index * 200);
+                step.classList.add('opacity-100');
+                step.classList.remove('opacity-0');
+                
+                // Animate the line growing
+                const line = step.querySelector('.step-line');
+                if (line) {
+                  line.classList.add('h-full');
+                  line.classList.remove('h-0');
+                }
+                
+                // Animate the content
+                const content = step.querySelector('.step-content');
+                if (content) {
+                  content.classList.add('opacity-100', 'translate-x-0');
+                  content.classList.remove('opacity-0', 'translate-x-12');
+                }
+                
+                // Animate the number
+                const number = step.querySelector('.step-number');
+                if (number) {
+                  number.classList.add('scale-100');
+                  number.classList.remove('scale-0');
+                }
+              }, 400 + index * 800); // Longer delay between steps for more dramatic effect
             });
           }
         }
@@ -52,72 +79,96 @@ const JourneySection = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 lg:py-32 relative overflow-hidden">
-      {/* Beautiful gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-700 via-teal-600 to-slate-700"></div>
-      
-      {/* Decorative pattern overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{ 
-          backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-          backgroundSize: '30px 30px'
-        }}></div>
-      </div>
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
-          <div className="col-span-1 lg:col-span-3">
-            <div className="flex flex-col space-y-12 md:space-y-16 relative">
-              {/* Connecting line between steps */}
-              <div className="absolute top-0 bottom-0 left-[40px] md:left-[60px] w-0.5 bg-white/20 hidden md:block"></div>
-              
-              {journeySteps.map((step, index) => (
-                <div 
-                  key={index} 
-                  className="journey-step flex flex-col md:flex-row md:items-start gap-6 md:gap-8 opacity-0 translate-y-10 transition-all duration-700"
-                >
-                  <div className="flex-shrink-0">
-                    <div className="relative">
-                      <div className="w-20 h-20 md:w-32 md:h-32 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 shadow-lg">
-                        <span className="text-2xl md:text-4xl font-light text-white">{step.number}</span>
-                      </div>
-                      <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-teal-400 shadow-lg"></div>
-                    </div>
+    <section ref={sectionRef} className="py-20 md:py-28 bg-white relative">      
+      <div className="container mx-auto px-6 relative">
+        {/* Section header with animation */}
+        <div className="text-center mb-20">
+          <h2 className="section-title text-3xl md:text-4xl font-light text-slate-800 mb-4 tracking-wide opacity-0 translate-y-8 transition-all duration-1000 delay-300">
+            Your Path to Wellbeing
+          </h2>
+          <div className="w-16 h-0.5 bg-teal-600 mx-auto transition-all duration-1000 delay-500"></div>
+        </div>
+        
+        {/* Timeline container */}
+        <div className="max-w-5xl mx-auto relative pt-10">
+          {/* Central timeline */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-slate-100"></div>
+          
+          {journeySteps.map((step, index) => (
+            <div 
+              key={index} 
+              className={`journey-step relative opacity-0 transition-opacity duration-700 mb-24 ${
+                index % 2 === 0 ? 'text-right' : 'text-left'
+              }`}
+            >
+              {/* Timeline marker with number */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+                <div className="step-number transform scale-0 transition-transform duration-1000 ease-out">
+                  <div className="w-20 h-20 rounded-full bg-white border border-teal-600 flex items-center justify-center shadow-lg">
+                    <span className="text-xl font-light text-teal-600">{step.number}</span>
                   </div>
                   
-                  <div className="md:pt-6">
-                    <h3 className="text-2xl md:text-3xl font-light text-white mb-4">{step.title}</h3>
-                    <p className="text-white/90 leading-relaxed max-w-2xl">{step.description}</p>
-                  </div>
+                  {/* Growing line from circle */}
+                  {index < journeySteps.length - 1 && (
+                    <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 w-0.5 bg-teal-600 step-line h-0 transition-all duration-2000 ease-out"></div>
+                  )}
                 </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="col-span-1 mt-12 lg:mt-0">
-            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 shadow-xl h-full flex flex-col justify-center">
-              <div className="mb-8">
-                <div className="w-12 h-1 bg-teal-400 mb-6"></div>
-                <h3 className="text-2xl md:text-3xl font-light text-white mb-6">Start Your New Narrative Today</h3>
-                <p className="text-white/80 mb-8">Take the first step toward a healthier mind and a more fulfilling life.</p>
               </div>
               
-              <Link 
-                to="/contact" 
-                className="block w-full bg-white text-teal-700 hover:bg-teal-50 transition-colors py-3 px-6 rounded-lg font-medium text-center shadow-lg hover:shadow-xl uppercase tracking-wider text-sm"
+              {/* Content box */}
+              <div 
+                className={`grid grid-cols-1 md:grid-cols-2 gap-8 ${
+                  index % 2 === 0 
+                    ? 'md:text-right' 
+                    : 'md:text-left md:grid-flow-col-dense'
+                }`}
               >
-                Schedule a Meeting
-              </Link>
+                <div 
+                  className={`step-content opacity-0 translate-x-12 transition-all duration-1000 ease-out ${
+                    index % 2 === 0 
+                      ? 'md:col-start-1' 
+                      : 'md:col-start-2'
+                  }`}
+                >
+                  <div className={`bg-white p-6 md:p-8 shadow-lg border border-slate-100 ${
+                    index % 2 === 0 ? 'ml-auto mr-10' : 'mr-auto ml-10'
+                  }`}>
+                    <h3 className="text-xl md:text-2xl font-light text-slate-800 mb-4">
+                      {step.title}
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+                
+                <div className={index % 2 === 0 ? 'md:col-start-2' : 'md:col-start-1'}>
+                  {/* Empty space to balance layout */}
+                </div>
+              </div>
             </div>
+          ))}
+          
+          {/* Final CTA */}
+          <div className="text-center mt-12 pt-10 opacity-0 translate-y-10 transition-all duration-1000 delay-2000">
+            <h3 className="text-2xl font-light text-slate-800 mb-6">
+              Start Your New Narrative Today
+            </h3>
+            <p className="text-slate-600 mb-8 max-w-lg mx-auto">
+              Take the first step toward a healthier mind and a more fulfilling life.
+            </p>
+            
+            <Link 
+              to="/contact" 
+              className="inline-block bg-teal-800 text-white hover:bg-teal-700 transition-colors py-3 px-8 font-medium uppercase tracking-wider text-sm shadow-md hover:shadow-lg"
+            >
+              Schedule a Meeting
+            </Link>
           </div>
         </div>
       </div>
-      
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-teal-400/10 blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-80 h-80 rounded-full bg-slate-700/20 blur-3xl"></div>
     </section>
   );
 };
 
-export default JourneySection; 
+export default JourneySection;
