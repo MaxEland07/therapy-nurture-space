@@ -1,5 +1,7 @@
-import { useLocation } from "react-router-dom";
+
+import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,14 +14,21 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-therapy-cream px-6">
+      <div className="text-center max-w-xl animate-fade-in-up">
+        <h1 className="text-6xl font-serif font-medium mb-6">404</h1>
+        <p className="text-2xl text-muted-foreground mb-8">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <Button className="btn-primary" asChild>
+          <Link to="/">Return to Home</Link>
+        </Button>
       </div>
+      
+      {/* Decorative elements */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-therapy-light-blue/20 to-transparent z-[-1]" />
+      <div className="absolute top-1/2 left-0 transform -translate-y-1/2 w-64 h-64 rounded-full bg-therapy-blue/10 -ml-32 z-[-1]" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-therapy-light-blue/30 -mr-20 -mb-20 z-[-1]" />
     </div>
   );
 };
