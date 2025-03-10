@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 
 const TestimonialsSection = () => {
@@ -23,15 +24,23 @@ const TestimonialsSection = () => {
   
   return (
     <section className="py-20 bg-slate-50 relative overflow-hidden">
+      {/* Enhanced background with subtle patterns */}
+      <div className="absolute inset-0 triangle-pattern opacity-50"></div>
+      
       {/* Flowing curved elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-slate-100 rounded-full opacity-50 transform translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-slate-100 rounded-full opacity-30 transform -translate-x-1/3 translate-y-1/3"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-therapy-blue/10 rounded-full opacity-70 transform translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-therapy-light-blue/30 rounded-full opacity-70 transform -translate-x-1/3 translate-y-1/3"></div>
+      
+      {/* More decorative elements */}
+      <div className="absolute top-1/4 left-1/4 w-16 h-16 bg-therapy-sage/10 rounded-full animate-float"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-12 h-12 bg-therapy-blue/10 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-3 py-1 bg-slate-200 text-slate-700 text-sm rounded-full mb-4">Client Stories</span>
+            <span className="inline-block px-3 py-1 bg-therapy-light-blue text-therapy-blue text-sm rounded-full mb-4">Client Stories</span>
             <h2 className="text-3xl md:text-4xl font-light text-slate-800 mb-4">Transformative Experiences</h2>
+            <div className="wavy-line mx-auto my-6 opacity-70"></div>
           </div>
           
           <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 md:p-12 relative">
@@ -64,7 +73,7 @@ const TestimonialsSection = () => {
                   key={index}
                   onClick={() => setActiveIndex(index)}
                   className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                    index === activeIndex ? "bg-slate-700" : "bg-slate-200"
+                    index === activeIndex ? "bg-therapy-sage" : "bg-slate-200"
                   }`}
                   aria-label={`View testimonial ${index + 1}`}
                 />

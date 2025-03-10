@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -27,8 +28,13 @@ const TherapyIntro = () => {
   }, []);
 
   return (
-    <div className="bg-white py-16 md:py-24">
-      <div className="container mx-auto px-6">
+    <div className="bg-white py-16 md:py-24 relative overflow-hidden">
+      {/* Subtle background elements */}
+      <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-therapy-light-blue/20 blur-xl"></div>
+      <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-therapy-sand/30 blur-xl"></div>
+      <div className="absolute top-1/2 right-1/3 w-32 h-32 rounded-full bg-therapy-sage/10 blur-lg"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div 
           ref={sectionRef}
           className="max-w-6xl mx-auto transition-all duration-1000 transform opacity-0 translate-y-10"
@@ -66,13 +72,13 @@ const TherapyIntro = () => {
             
             <div className="hidden lg:block">
               <div className="relative">
-                <div className="absolute -top-4 -left-4 w-24 h-24 bg-slate-100 rounded-full"></div>
+                <div className="absolute -top-4 -left-4 w-24 h-24 bg-therapy-sage/20 rounded-full"></div>
                 <img 
                   src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                   alt="Therapy session" 
                   className="relative z-10 rounded-lg shadow-lg w-full h-auto object-cover"
                 />
-                <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-slate-200 rounded-full"></div>
+                <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-therapy-light-blue/30 rounded-full"></div>
               </div>
             </div>
           </div>

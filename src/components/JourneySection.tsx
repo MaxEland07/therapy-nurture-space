@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -79,14 +80,22 @@ const JourneySection = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-28 bg-white relative">      
-      <div className="container mx-auto px-6 relative">
+    <section ref={sectionRef} className="py-20 md:py-28 bg-white relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-40"></div>
+      
+      {/* Floating decorative elements */}
+      <div className="absolute top-20 left-10 w-40 h-40 bg-therapy-light-blue/20 rounded-full blur-xl"></div>
+      <div className="absolute bottom-40 right-10 w-60 h-60 bg-therapy-sand/20 rounded-full blur-xl"></div>
+      <div className="absolute top-1/2 left-1/3 w-20 h-20 bg-therapy-sage/10 rounded-full"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section header with animation */}
         <div className="text-center mb-20">
           <h2 className="section-title text-3xl md:text-4xl font-light text-slate-800 mb-4 tracking-wide opacity-0 translate-y-8 transition-all duration-1000 delay-300">
             Your Path to Wellbeing
           </h2>
-          <div className="w-16 h-0.5 bg-teal-600 mx-auto transition-all duration-1000 delay-500"></div>
+          <div className="w-16 h-0.5 bg-therapy-sage mx-auto transition-all duration-1000 delay-500"></div>
         </div>
         
         {/* Timeline container */}
@@ -160,7 +169,7 @@ const JourneySection = () => {
             
             <Link 
               to="/contact" 
-              className="inline-block bg-teal-800 text-white hover:bg-teal-700 transition-colors py-3 px-8 font-medium uppercase tracking-wider text-sm shadow-md hover:shadow-lg"
+              className="inline-block bg-therapy-sage text-white hover:bg-therapy-sage/90 transition-colors py-3 px-8 font-medium uppercase tracking-wider text-sm shadow-md hover:shadow-lg"
             >
               Schedule a Meeting
             </Link>
