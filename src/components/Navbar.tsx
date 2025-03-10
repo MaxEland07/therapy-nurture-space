@@ -44,6 +44,15 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Define the navigation items once to use in both desktop and mobile
+  const navigationItems = [
+    { path: '/about', label: 'About & FAQs' },
+    { path: '/expertise', label: 'Expertise' },
+    { path: '/Blog', label: 'Blog' },
+    { path: '/Fees & Insurance', label: 'Fees & Insurance' },
+    { path: '/Contact', label: 'Contact' }
+  ];
+
   return (
     <>
       <nav 
@@ -67,15 +76,8 @@ const Navbar = () => {
             </Link>
 
             {/* Desktop navigation with improved spacing */}
-            <div className="hidden md:flex items-center space-x-10">
-              {[
-                
-                { path: '/about', label: 'About & FAQs' },
-                { path: '/expertise', label: 'Expertise' },
-                { path: '/Blog', label: 'Blog' },
-                { path: '/Fees & Insurance', label: 'Fees & Insurance' },
-                { path: '/Contact', label: 'Contact' }
-              ].map((item) => (
+            <div className="hidden min-[905px]:flex items-center space-x-10">
+              {navigationItems.map((item) => (
                 <Link 
                   key={item.path}
                   to={item.path} 
@@ -92,7 +94,7 @@ const Navbar = () => {
             </div>
 
             {/* CTA button with improved styling */}
-            <div className="hidden md:block">
+            <div className="hidden min-[905px]:block">
               <Link 
                 to="/contact" 
                 className="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors"
@@ -104,7 +106,7 @@ const Navbar = () => {
             {/* Mobile menu button with improved styling */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden p-1.5 rounded-md focus:outline-none text-slate-700"
+              className="max-[904px]:block min-[905px]:hidden p-1.5 rounded-md focus:outline-none text-slate-700"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -128,13 +130,8 @@ const Navbar = () => {
       >
         <div className="w-full px-6 py-4">
           <div className="flex flex-col space-y-1">
-            {/* Mobile Navigation Links */}
-            {[
-              { path: '/specialties', label: 'Specialties' },
-              { path: '/about', label: 'About & FAQs' },
-              { path: '/expertise', label: 'Expertise' },
-              { path: '/resources', label: 'Resources' }
-            ].map((item) => (
+            {/* Updated Mobile Navigation Links */}
+            {navigationItems.map((item) => (
               <Link 
                 key={item.path}
                 to={item.path} 
