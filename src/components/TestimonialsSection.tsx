@@ -1,26 +1,23 @@
-
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      quote: "Working with Holland-Pearse transformed my approach to anxiety. The tools I've gained are invaluable for my daily life.",
-      author: "Sarah M.",
-      location: "Bristol",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg"
+      quote: "Highly recommend Tom. Professional, kind & empathetic. Thank you Tom for all you have done. I couldn't imagine being empowered with the knowledge I have gained over these sessions when we started. It really does feel like I've come so far and for that I am eternally grateful.",
+      author: "CLIENT"
     },
     {
-      quote: "After struggling with depression for years, I finally found a therapist who truly understood my experience. I'm deeply grateful.",
-      author: "James K.",
-      location: "Online Client",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+      quote: "Tom has really helped me overcome my anxiety over the last couple of months. He works with a very informal approach which instantly made me feel comfortable and safe. I have learnt vital skills and overall feel much happier and confident that I know how to tackle any anxiety when it comes my way. I couldn't recommend Tom enough!",
+      author: "CLIENT"
     },
     {
-      quote: "The therapy sessions helped me process trauma I'd been carrying for decades. I feel lighter and more present than ever before.",
-      author: "Melissa R.",
-      location: "Bath",
-      avatar: "https://randomuser.me/api/portraits/women/68.jpg"
+      quote: "Tom is a highly skilled CBT therapist I had a pleasure to work with over the past few months. He is excellent at listening, and he has a calm and kind manner. His informal and friendly approach put me at ease and made me feel very comfortable opening up and sharing my anxiety with him. We had eight sessions together and provided me with tools and techniques to recognise and challenge unhelpful thoughts and helped to deal with my anxiety. I would highly recommend Tom and his therapy to anyone.",
+      author: "CLIENT"
+    },
+    {
+      quote: "Tom has been brilliant. He gives clear explanations of theoretical concepts which have really helped me to 'look under the hood' and gain a better understanding of where some of my challenges arise from. He has helped me identify key areas to address and given me the tools to do so. He is a great listener and is non-judgmental, which puts me at ease and allows me to open up. Thank you Tom!",
+      author: "CLIENT"
     }
   ];
   
@@ -63,102 +60,72 @@ const TestimonialsSection = () => {
   };
   
   return (
-    <section className="py-12 bg-gradient-to-br from-therapy-light-blue via-white to-therapy-sand/20 relative overflow-hidden">
-      {/* Enhanced background with floating elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-therapy-blue/5 rounded-full blur-xl transform translate-x-1/4 -translate-y-1/4"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-therapy-sage/5 rounded-full blur-xl transform -translate-x-1/4 translate-y-1/4"></div>
-      <div className="absolute top-1/3 left-1/4 w-12 h-12 bg-therapy-sand/20 rounded-full animate-float"></div>
-      <div className="absolute bottom-1/3 right-1/3 w-8 h-8 bg-therapy-light-blue/30 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-      
-      <div className="container mx-auto px-6 relative z-10">
+    <section className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div 
-          className="max-w-5xl mx-auto"
+          className="max-w-6xl mx-auto"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
         >
           <motion.div 
-            className="text-center mb-8"
+            className="text-center mb-16"
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
             }}
           >
-            <span className="inline-block px-3 py-1 bg-therapy-light-blue text-therapy-blue text-sm rounded-full mb-3">Client Stories</span>
-            <h2 className="text-3xl md:text-4xl font-light text-slate-800 mb-2 tracking-wide">Transformative Experiences</h2>
-            <div className="wavy-line mx-auto my-4 opacity-70"></div>
+            <h2 className="text-3xl md:text-4xl font-medium text-slate-800 mb-3">Testimonials</h2>
+            
           </motion.div>
           
-          <div className="relative min-h-[300px] md:min-h-[250px]">
-            <AnimatePresence mode="wait">
-              {testimonials.map((testimonial, index) => (
-                index === activeIndex && (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
-                    transition={{ duration: 0.5 }}
-                    className="bg-white rounded-xl shadow-lg border border-slate-100 p-6 md:p-8 relative overflow-hidden"
-                  >
-                    {/* Decorative accent */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-therapy-light-blue/10 rounded-bl-full"></div>
-                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-therapy-sage/5 rounded-tr-full"></div>
-                    
-                    <div className="flex flex-col md:flex-row gap-6 items-center">
-                      {/* Avatar */}
-                      <div className="md:w-1/4 flex-shrink-0">
-                        <div className="relative">
-                          <div className="absolute inset-0 bg-therapy-sage/20 rounded-full blur-md transform -translate-x-2 translate-y-2"></div>
-                          <img
-                            src={testimonial.avatar}
-                            alt={testimonial.author}
-                            className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-md relative z-10 border-2 border-white"
-                          />
-                        </div>
-                      </div>
-                      
-                      {/* Quote */}
-                      <div className="md:w-3/4 relative">
-                        <div className="absolute -top-2 -left-4 text-therapy-light-blue text-5xl font-serif opacity-40">"</div>
-                        <blockquote className="relative z-10">
-                          <p className="text-lg md:text-xl font-light text-slate-700 mb-4">
-                            {testimonial.quote}
-                          </p>
-                          <footer className="flex items-center">
-                            <div>
-                              <div className="font-medium text-slate-800">{testimonial.author}</div>
-                              <div className="text-slate-500 text-sm">{testimonial.location}</div>
-                            </div>
-                          </footer>
-                        </blockquote>
-                      </div>
-                    </div>
-                  </motion.div>
-                )
-              ))}
-            </AnimatePresence>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    transition: { 
+                      duration: 0.5,
+                      delay: index * 0.1 
+                    } 
+                  }
+                }}
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)" 
+                }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-xl p-8 shadow-[0_5px_15px_rgba(0,0,0,0.05)] border border-gray-100 h-full flex flex-col relative overflow-hidden transform transition-all duration-300"
+              >
+                {/* Quote mark decorative element */}
+                <div className="absolute -top-2 -left-2 text-therapy-sage/10 text-[120px] leading-none font-serif">"</div>
+                
+                {/* Content */}
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="text-therapy-blue text-3xl mb-4">"</div>
+                  <p className="text-gray-700 mb-6 flex-grow font-light leading-relaxed">
+                    {testimonial.quote}
+                  </p>
+                  <div className="text-sm font-medium text-gray-500 mt-auto border-t border-gray-100 pt-4">
+                    {testimonial.author}
+                  </div>
+                </div>
+                
+                {/* Decorative accent */}
+                <div className="absolute bottom-0 right-0 w-24 h-24 bg-therapy-sage/5 rounded-tl-full"></div>
+              </motion.div>
+            ))}
           </div>
           
-          {/* Navigation dots with animated indicator */}
-          <div className="flex justify-center space-x-3 mt-6">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleDotClick(index)}
-                className="relative w-8 h-3 rounded-full bg-slate-200 transition-colors hover:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-therapy-sage focus:ring-offset-2"
-                aria-label={`View testimonial ${index + 1}`}
-              >
-                {index === activeIndex && (
-                  <motion.div
-                    className="absolute inset-0 bg-therapy-sage rounded-full"
-                    layoutId="activeDot"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
-              </button>
-            ))}
+          <div className="text-center mt-12">
+            <button className="px-8 py-3 bg-therapy-sage text-white rounded-lg hover:bg-therapy-sage/90 transition-all duration-300 shadow-md hover:shadow-lg transform hover:translate-y-[-2px] text-sm font-medium tracking-wide">
+              VIEW ALL TESTIMONIALS
+            </button>
           </div>
         </motion.div>
       </div>
