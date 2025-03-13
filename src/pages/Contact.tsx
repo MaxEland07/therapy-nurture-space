@@ -13,7 +13,11 @@ const Contact = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <main className="flex-grow">
-        
+        <PageHeader 
+          title="Contact Me" 
+          description="I'm here to help you overcome anxiety, low self-esteem, and depression. If you have any questions or would like to book an appointment, please get in touch using the form below."
+          pageName="Contact" 
+        />
         
         <ContactComponent />
       </main>

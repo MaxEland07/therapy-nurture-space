@@ -36,20 +36,7 @@ const Contact = () => {
   return (
     <section ref={sectionRef} id="contact" className="section bg-white">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <span className="inline-block py-1 px-3 bg-therapy-blue/30 text-primary rounded-full font-medium mb-4 text-sm animate-on-scroll opacity-0 translate-y-10 transition-all duration-700">
-            Get in Touch
-          </span>
-          
-          <h2 className="text-3xl md:text-4xl font-serif mb-6 animate-on-scroll opacity-0 translate-y-10 transition-all duration-700 delay-100">
-            Ready to Start Your Journey?
-          </h2>
-          
-          <p className="text-muted-foreground max-w-2xl mx-auto animate-on-scroll opacity-0 translate-y-10 transition-all duration-700 delay-200">
-            Contact me for a free consultation. Whether you prefer in-person sessions in Bristol 
-            or online therapy, I'm here to support your mental health journey.
-          </p>
-        </div>
+        
         
         <div className="grid md:grid-cols-2 gap-16">
           <div className="animate-on-scroll opacity-0 translate-y-10 transition-all duration-700 delay-300">
