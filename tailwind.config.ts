@@ -69,6 +69,7 @@ export default {
 					'sand': '#EAE7DC',
 					'cream': '#F8F5F0',
 					'sage': '#5A7D72', // Richer sage green
+					'slate-700': '#1E293B', // Darker slate color
 				}
 			},
 			fontFamily: {

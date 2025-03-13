@@ -1,6 +1,6 @@
-
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
+import PageHeader from "../components/PageHeader";
 import ExpertiseComponent from "../components/Expertise";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
@@ -14,25 +14,11 @@ const Expertise = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <main className="flex-grow">
-        <section className="py-12 md:py-16 px-6">
-          <div className="container mx-auto">
-            <div className="text-center mb-8">
-              <span className="inline-block py-1 px-3 bg-therapy-blue/20 text-primary rounded-full font-medium mb-3 text-sm">
-                Expertise
-              </span>
-              
-              <h1 className="text-4xl md:text-5xl font-serif mb-4">
-                Areas of Specialisation
-              </h1>
-              
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                I specialise in helping individuals overcome anxiety, low self-esteem, and depression. 
-                Through evidence-based therapy, we'll work together to develop practical strategies for managing 
-                these challenges and improving your overall wellbeing.
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHeader 
+          title="Areas of Specialisation" 
+          description="I specialise in helping individuals overcome anxiety, low self-esteem, and depression. Through evidence-based therapy, we'll work together to develop practical strategies for managing these challenges and improving your overall wellbeing."
+          pageName="Expertise"
+        />
         
         <ExpertiseComponent />
         

@@ -42,7 +42,7 @@ const TherapyIntro = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-light text-slate-800 leading-tight mb-8 tracking-wide">
-                Tired of been held back by bad mental health?
+                Tired of being held back by bad mental health?
               </h2>
               
               <p className="text-slate-700 mb-6 leading-relaxed">
