@@ -138,7 +138,7 @@ const Expertise = () => {
                       <TabsTrigger 
                         key={area.id} 
                         value={area.id}
-                        className="data-[state=active]:bg-therapy-sage data-[state=active]:text-white px-4 py-2 rounded-md transition-all whitespace-nowrap text-sm border border-therapy-sage/20"
+                        className="data-[state=active]:bg-slate-700 data-[state=active]:text-white px-4 py-2 rounded-md transition-all whitespace-nowrap text-sm border border-slate-700/20"
                       >
                         {area.title}
                       </TabsTrigger>
@@ -156,7 +156,7 @@ const Expertise = () => {
                     <TabsTrigger 
                       key={area.id} 
                       value={area.id}
-                      className="data-[state=active]:bg-therapy-sage data-[state=active]:text-white px-4 py-2 rounded-md transition-all whitespace-nowrap text-sm border border-therapy-sage/20"
+                      className="data-[state=active]:bg-slate-700 data-[state=active]:text-white px-4 py-2 rounded-md transition-all whitespace-nowrap text-sm border border-slate-700/20"
                     >
                       {area.title}
                     </TabsTrigger>
