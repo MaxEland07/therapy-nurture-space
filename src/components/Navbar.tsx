@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -48,9 +49,9 @@ const Navbar = () => {
   const navigationItems = [
     { path: '/about', label: 'About & FAQs' },
     { path: '/expertise', label: 'Expertise' },
-    { path: '/Blog', label: 'Blog' },
-    { path: '/Fees & Insurance', label: 'Fees & Insurance' },
-    { path: '/Contact', label: 'Contact' }
+    { path: '/blog', label: 'Blog' },
+    { path: '/fees', label: 'Fees & Insurance' },
+    { path: '/contact', label: 'Contact' }
   ];
 
   return (
