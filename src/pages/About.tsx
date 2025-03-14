@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Footer from "../components/Footer";
+import PageHeader from "../components/PageHeader";
 
 const About = () => {
   useEffect(() => {
@@ -16,23 +17,11 @@ const About = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="pt-24 pb-16 md:pb-24 bg-slate-50">
-          <div className="container mx-auto px-6">
-            <div className="text-center max-w-3xl mx-auto">
-              <span className="inline-block py-1 px-3 bg-therapy-blue/20 text-primary rounded-full font-medium mb-4 text-sm">
-                About Me & FAQ
-              </span>
-              
-              <h1 className="text-3xl md:text-5xl font-serif mb-6 text-slate-800">
-                Welcome to Holland-Pearse Psychotherapy
-              </h1>
-              
-              <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
-                My mission is to provide empathetic and effective psychological therapy that helps people overcome challenges and live more fulfilling lives.
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHeader 
+          title="About Me & FAQ" 
+          description="Learn more about my approach to therapy and how I can help you."
+          pageName="About Me & FAQ"
+        />
         
         {/* About Me Section */}
         <section className="py-16 md:py-24 bg-white">
