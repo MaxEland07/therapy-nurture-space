@@ -108,7 +108,7 @@
   }
 
   .nav-link.active {
-    @apply text-therapy-sage after:w-full;
+    @apply text-therapy-navy after:w-full;
   }
 
   .section {
