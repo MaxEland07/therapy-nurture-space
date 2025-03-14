@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Check, Calendar, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Footer from "../components/Footer";
 
 const Fees = () => {
   useEffect(() => {
@@ -339,20 +340,7 @@ const Fees = () => {
         </section>
       </main>
       
-      <footer className="bg-white py-12 border-t border-slate-200">
-        <div className="container mx-auto px-6">
-          <div className="mt-12 pt-6 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-muted-foreground text-sm">
-              © {new Date().getFullYear()} Tom Holland Pierce. All rights reserved.
-            </p>
-            
-            <div className="mt-4 md:mt-0 flex items-center space-x-4">
-              <a href="/privacy" className="text-muted-foreground hover:text-primary text-sm">Privacy Policy</a>
-              <a href="/terms" className="text-muted-foreground hover:text-primary text-sm">Terms of Service</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

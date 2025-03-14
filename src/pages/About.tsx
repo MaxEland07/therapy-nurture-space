@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Footer from "../components/Footer";
 
 const About = () => {
   useEffect(() => {
@@ -234,20 +235,7 @@ const About = () => {
         </section>
       </main>
       
-      <footer className="bg-white py-12 border-t border-therapy-blue/10">
-        <div className="container mx-auto px-6">
-          <div className="mt-12 pt-6 border-t border-therapy-blue/10 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-muted-foreground text-sm">
-              © {new Date().getFullYear()} Holland-Pearse Psychotherapy. All rights reserved.
-            </p>
-            
-            <div className="mt-4 md:mt-0 flex items-center space-x-4">
-              <a href="/privacy" className="text-muted-foreground hover:text-primary text-sm">Privacy Policy</a>
-              <a href="/terms" className="text-muted-foreground hover:text-primary text-sm">Terms of Service</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
