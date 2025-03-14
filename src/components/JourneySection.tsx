@@ -80,13 +80,6 @@ const JourneySection = () => {
 
   return (
     <section ref={sectionRef} className="py-8 md:py-16 bg-white relative overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-40"></div>
-      
-      {/* Floating decorative elements - adjusted for mobile */}
-      <div className="absolute top-10 left-5 md:top-20 md:left-10 w-24 md:w-40 h-24 md:h-40 bg-therapy-light-blue/20 rounded-full blur-xl"></div>
-      <div className="absolute bottom-20 right-5 md:bottom-40 md:right-10 w-36 md:w-60 h-36 md:h-60 bg-therapy-sand/20 rounded-full blur-xl"></div>
-      <div className="absolute top-1/2 left-1/4 md:left-1/3 w-12 md:w-20 h-12 md:h-20 bg-therapy-sage/10 rounded-full"></div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Section header with animation */}
@@ -113,13 +106,13 @@ const JourneySection = () => {
               {/* Timeline marker with number - different positioning for mobile/desktop */}
               <div className="absolute left-4 sm:left-8 md:left-1/2 transform md:-translate-x-1/2 z-10">
                 <div className="step-number transform scale-0 transition-transform duration-1000 ease-out">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full bg-white border border-teal-600 flex items-center justify-center shadow-lg">
-                    <span className="text-base md:text-lg font-light text-teal-600">{step.number}</span>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full bg-white border border-therapy-navy flex items-center justify-center shadow-lg">
+                    <span className="text-base md:text-lg font-light text-therapy-navy">{step.number}</span>
                   </div>
                   
                   {/* Growing line from circle */}
-                  {index < journeySteps.length - 1 && (
-                    <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 w-0.5 bg-teal-600 step-line h-0 transition-all duration-2000 ease-out"></div>
+                  {index < journeySteps.length  && (
+                    <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 w-0.5 bg-therapy-navy step-line h-0 transition-all duration-2000 ease-out"></div>
                   )}
                 </div>
               </div>
@@ -128,9 +121,9 @@ const JourneySection = () => {
               <div className="md:grid md:grid-cols-2 md:gap-4">
                 <div 
                   className={`step-content pl-16 sm:pl-20 md:pl-0 opacity-0 transition-all duration-1000 ease-out ${
-                    // Only apply horizontal translation on desktop
+                    // Apply different transformations based on odd/even
                     index % 2 === 0 
-                      ? 'md:translate-x-12 md:col-start-1' 
+                      ? 'md:-translate-x-12 md:col-start-1' 
                       : 'md:translate-x-12 md:col-start-2'
                   } ${
                     // On mobile, apply vertical translation instead

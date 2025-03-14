@@ -196,7 +196,7 @@ const TestimonialsSection = () => {
                 className="bg-white rounded-xl p-8 shadow-[0_5px_15px_rgba(0,0,0,0.05)] border border-gray-100 h-full flex flex-col relative overflow-hidden transform transition-all duration-300"
               >
                 {/* Quote mark decorative element */}
-                <div className="absolute -top-2 -left-2 text-therapy-sage/10 text-[120px] leading-none font-serif">"</div>
+                <div className="absolute -top-2 -left-2 text-therapy-navy/10 text-[120px] leading-none font-serif">"</div>
                 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col h-full">
