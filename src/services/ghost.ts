@@ -4,8 +4,8 @@ import GhostContentAPI from '@tryghost/content-api';
 // Initialize Ghost API client
 // When you set up your Ghost blog, you'll need to replace these values with your actual Ghost URL and content API key
 export const ghost = new GhostContentAPI({
-  url: process.env.GHOST_URL || 'https://demo.ghost.io', // Using demo for development (replace with your Ghost URL)
-  key: process.env.GHOST_CONTENT_API_KEY || '22444f78447824223cefc48062', // Demo key (replace with your Content API key)
+  url: import.meta.env.VITE_GHOST_URL || 'https://demo.ghost.io', // Using demo for development (replace with your Ghost URL)
+  key: import.meta.env.VITE_GHOST_CONTENT_API_KEY || '22444f78447824223cefc48062', // Demo key (replace with your Content API key)
   version: 'v5.0'
 });
 
